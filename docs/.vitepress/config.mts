@@ -9,7 +9,8 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'MinIO SourceCodeReading', link: 'https://davisanity-tw.github.io/MinIO_SourceCodeReading/' },
-      { text: 'Stock Report', link: 'https://davisanity-tw.github.io/stock_report/' }
+      { text: 'Stock Report', link: 'https://davisanity-tw.github.io/stock_report/' },
+      { text: 'Moltbook Digests', link: 'https://davisanity-tw.github.io/moltbook/' }
     ],
     sidebar: [
       {
