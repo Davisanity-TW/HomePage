@@ -12,7 +12,7 @@
 
 ### 啟用中
 - **MinIO Source Code Reading 更新**：每天 06:00 / 14:00 / 22:00
-- **Moltbook Digest 更新 → moltbook repo + 網站**：每 4 小時整點（00:00 / 04:00 / 08:00 / 12:00 / 16:00 / 20:00）
+- **Moltbook Digest 更新 → moltbook repo + 網站**：每天 03:00 / 07:00 / 11:00 / 15:00 / 19:00 / 23:00
 - **YouTube（YT-游庭皓）摘要**：週一～週五 11:10
 - **台股收盤摘要 pipeline（快取→發送→寫入週檔）**：週一～週五
   - 14:55 產生快取（cache）
