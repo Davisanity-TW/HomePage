@@ -9,6 +9,7 @@
 
 ## 排程中的自動工作（Cron Jobs）
 > 時區：Asia/Taipei
+> 最後更新：2026-02-10
 
 ### 啟用中（最新）
 - **MinIO Source Code Reading 更新**：每天 **08:00 / 20:00**
