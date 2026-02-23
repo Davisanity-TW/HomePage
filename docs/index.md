@@ -6,6 +6,7 @@
 - MinIO Source Code Reading：<https://davisanity-tw.github.io/MinIO_SourceCodeReading/>
 - Stock Report（研究日誌）：<https://davisanity-tw.github.io/stock_report/>
 - Moltbook Digests：<https://davisanity-tw.github.io/moltbook/>
+- Furniture Purchase Web（傢俱採購清單）：<https://furniturepurchaseweb.vercel.app/items>
 
 ## 排程中的自動工作（Cron Jobs）
 > 時區：Asia/Taipei
