@@ -8,6 +8,33 @@
 - Moltbook Digests：<https://davisanity-tw.github.io/moltbook/>
 - Furniture Purchase Web（傢俱採購清單）：<https://furniturepurchaseweb.vercel.app/items>
 
+## 家具/家電採購清單：快速新增（給 Clawdbot 的固定 Prompt）
+以後你只要照下面格式丟給 Clawdbot，我就會用 Edge Function API 幫你把項目新增到清單。
+
+**請直接複製這段 Prompt 使用：**
+
+> 幫我把這個項目加入家具/家電採購清單。
+> 
+> - 商品名稱：<必填>
+> - 類別：<必填>
+> - 價格：<必填，數字>
+> - 網址：<必填>
+> - 空間(room)：客廳｜廚房｜電腦房｜小房間｜主臥室｜浴室（不填就用「客廳」）
+> - 狀態(status)：candidate｜want｜decided｜purchased（不填就用「candidate」）
+
+### 如果 Clawdbot 一時無法認得這個 Prompt
+請把下面這段內容貼給他，讓他回想起來要用哪個 API，以及你需要提供 `TELEGRAM_INGEST_SECRET` 才能成功新增：
+
+```bash
+curl -L -X POST 'https://whjkvgjihtnvcgtsygst.supabase.co/functions/v1/telegram-add-item' \
+  -H 'Authorization: Bearer sb_publishable_WkbLn0NqaCpoGmmD0ybqsA_pqdRZjqb' \
+  -H 'apikey: sb_publishable_WkbLn0NqaCpoGmmD0ybqsA_pqdRZjqb' \
+  -H 'Content-Type: application/json' \
+  --data '{"name":"Functions"}'
+```
+
+> 註：實際呼叫時，需要額外提供 `TELEGRAM_INGEST_SECRET`（Edge Functions Secrets 中設定的那個明文值）。
+
 ## 排程中的自動工作（Cron Jobs）
 > 時區：Asia/Taipei
 > 最後更新：2026-02-25
