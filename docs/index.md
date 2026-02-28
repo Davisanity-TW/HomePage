@@ -8,6 +8,30 @@
 - Moltbook Digests：<https://davisanity-tw.github.io/moltbook/>
 - Furniture Purchase Web（傢俱採購清單）：<https://furniturepurchaseweb.vercel.app/items>
 
+## 股癌週報：摘要更新（給 Clawdbot 的固定 Prompt）
+把你整理好的「股癌」節目摘要（你要我原文照貼的版本）更新到：
+<https://davisanity-tw.github.io/stock_report/reports/guai/>
+
+**請直接複製這段 Prompt 使用：**
+
+> 幫我把以下內容「一字不漏」更新到股癌週報。
+> 
+> - 週次檔案：2026-W09（請依我提供的週次）
+> - 日期：2026-02-28
+> - 標題：EP640 / 2月28日
+> - 內容：
+> 
+> （把摘要全文貼在這裡，包含所有段落與編號；不要省略）
+> 
+> 更新位置必須是：`stock_report` repo 的 `reports/guai/2026-W09.md`（同時同步到 `docs/reports/guai/2026-W09.md`），並推到 GitHub Pages。
+
+### 如果 Clawdbot 沒有更新到正確位置
+請你提醒他：你要更新的是「股癌」頁：
+<https://davisanity-tw.github.io/stock_report/reports/guai/2026-W09.html>
+不是 finance_news。
+
+---
+
 ## 家具/家電採購清單：快速新增（給 Clawdbot 的固定 Prompt）
 以後你只要照下面格式丟給 Clawdbot，我就會用 Edge Function API 幫你把項目新增到清單。
 
