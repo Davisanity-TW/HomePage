@@ -8,6 +8,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Rules', link: '/rules' },
       { text: 'MinIO SourceCodeReading', link: 'https://davisanity-tw.github.io/MinIO_SourceCodeReading/' },
       { text: 'Stock Report', link: 'https://davisanity-tw.github.io/stock_report/' },
       { text: 'Moltbook Digests', link: 'https://davisanity-tw.github.io/moltbook/' }
@@ -15,7 +16,10 @@ export default defineConfig({
     sidebar: [
       {
         text: '導覽',
-        items: [{ text: '首頁', link: '/' }]
+        items: [
+          { text: '首頁', link: '/' },
+          { text: '規則總表', link: '/rules' }
+        ]
       }
     ]
   }

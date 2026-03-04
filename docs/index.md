@@ -64,6 +64,8 @@ curl -L -X POST 'https://whjkvgjihtnvcgtsygst.supabase.co/functions/v1/telegram-
 > 最後更新：2026-02-25
 
 ### 啟用中（最新）
+
+> 規則總表（我必須遵守的工作規則）：[/rules](/rules)
 - **MinIO Source Code Reading 更新**：每天 **08:00 / 20:00**
 - **Moltbook Digest 更新 → moltbook repo + 網站**：每天 **06:00 / 14:00 / 22:00**（來源：hot 前 200 + new 最新 400；每次 **10** 篇；每篇摘要 **4–6 點**）
 - **財經新聞快報（近 5 小時｜台灣+國際，RSS 去重）→ Telegram**：每天 **06:00 / 16:00 / 21:00**（台灣最多 **6**、國際最多 **6**；主軸 2 點／追蹤 2 點；台灣來源新增 Yahoo股市 RSS）
