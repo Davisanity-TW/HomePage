@@ -14,16 +14,16 @@
 
 **請直接複製這段 Prompt 使用：**
 
-> 幫我把以下內容「一字不漏」更新到股癌週報。
+> 幫我把以下內容「一字不漏」並以 Markdown 適當的排版，標題或是主題也要特別放大字體便於閱讀，並更新到股癌週報。
 > 
-> - 週次檔案：2026-W09（請依我提供的週次）
-> - 日期：2026-02-28
-> - 標題：EP640 / 2月28日
+> - 週次檔案：2026-Wxx（請依我提供的週次）
+> - 日期：2026-mm-dd
+> - 標題：EPxxx / xx月xx日
 > - 內容：
 > 
 > （把摘要全文貼在這裡，包含所有段落與編號；不要省略）
 > 
-> 更新位置必須是：`stock_report` repo 的 `reports/guai/2026-W09.md`（同時同步到 `docs/reports/guai/2026-W09.md`），並推到 GitHub Pages。
+> 更新位置必須是：`stock_report` repo 的 `reports/guai/yyyy-Wxx.md`（同時同步到 `docs/reports/guai/yyyy-Wxx.md`），並推到 GitHub Pages。
 
 ### 如果 Clawdbot 沒有更新到正確位置
 請你提醒他：你要更新的是「股癌」頁：
