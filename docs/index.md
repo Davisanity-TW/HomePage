@@ -73,7 +73,7 @@ curl -L -X POST 'https://whjkvgjihtnvcgtsygst.supabase.co/functions/v1/telegram-
 
 ## 排程中的自動工作（Cron Jobs）
 > 時區：Asia/Taipei
-> 最後更新：2026-02-25
+> 最後更新：2026-03-19
 
 ### 啟用中（最新）
 
@@ -89,6 +89,7 @@ curl -L -X POST 'https://whjkvgjihtnvcgtsygst.supabase.co/functions/v1/telegram-
   - 06:28 產生快取（cache）
   - 06:35 Telegram 發送
   - 06:40 寫入 `stock_report` 週檔並 push
+- **台指期盤後（WTXP&）當日行情 → Telegram**：週一～週五 **21:40**（附 Wantgoo 連結）
 
 ### 目前停用（保留設定）
 - **YouTube（YT-游庭皓）摘要**：週一～週五 11:10
