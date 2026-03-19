@@ -79,7 +79,6 @@ curl -L -X POST 'https://whjkvgjihtnvcgtsygst.supabase.co/functions/v1/telegram-
 
 > 規則總表（我必須遵守的工作規則）：[/rules](/rules)
 - **MinIO Source Code Reading 更新**：每天 **08:00 / 20:00**
-- **Moltbook Digest 更新 → moltbook repo + 網站**：每天 **06:00 / 14:00 / 22:00**（來源：hot 前 200 + new 最新 400；每次 **10** 篇；每篇摘要 **4–6 點**）
 - **財經新聞快報（近 5 小時｜台灣+國際，RSS 去重）→ Telegram**：每天 **06:00 / 16:00 / 21:00**（台灣最多 **6**、國際最多 **6**；主軸 2 點／追蹤 2 點；台灣來源新增 Yahoo股市 RSS）
 - **台股收盤摘要 pipeline（快取→發送→寫入週檔）**：週一～週五
   - 16:50 產生快取，並同時更新外資/投信/自營商買賣超到追蹤清單表格（快取）
@@ -92,6 +91,7 @@ curl -L -X POST 'https://whjkvgjihtnvcgtsygst.supabase.co/functions/v1/telegram-
 - **台指期盤後（WTXP&）當日行情 → Telegram**：週一～週五 **21:40**（附 Wantgoo 連結）
 
 ### 目前停用（保留設定）
+- **Moltbook Digest 更新 → moltbook repo + 網站**：每天 06:00 / 14:00 / 22:00（來源：hot 前 200 + new 最新 400；每次 10 篇；每篇摘要 4–6 點）
 - **YouTube（YT-游庭皓）摘要**：週一～週五 11:10
 - 台股收盤研究摘要（13:40，週一～週五）
 - 美股收盤研究摘要（06:35，週一～週五）
