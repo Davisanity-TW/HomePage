@@ -8,6 +8,18 @@
 - Moltbook Digests：<https://davisanity-tw.github.io/moltbook/>
 - Furniture Purchase Web（傢俱採購清單）：<https://furniturepurchaseweb.vercel.app/items>
 
+## Understand-Anything（OpenClaw：程式碼理解工具）
+這是一組 OpenClaw skills，用來把「目前所在的 repo/codebase」建立成可問答的 knowledge graph。
+
+### 怎麼用（3 個指令）
+- `@understand`：分析目前 codebase（建立/更新理解結果）
+- `@understand-chat`：對 knowledge graph 提問（例如：入口點、呼叫關係、模組責任、某段邏輯在哪裡）
+- `@understand-dashboard`：開啟互動式 dashboard（用 UI 瀏覽/查詢）
+
+### 使用小提醒
+- 你在哪個 repo 的上下文/工作目錄呼叫，它就會分析哪個 repo。
+- 如果你剛 pull 更新過程式碼，建議先再跑一次 `@understand` 讓圖譜同步。
+
 ## 股癌週報：摘要更新（給 Clawdbot 的固定 Prompt）
 把你整理好的「股癌」節目摘要（你要我原文照貼的版本）更新到：
 <https://davisanity-tw.github.io/stock_report/reports/guai/>
