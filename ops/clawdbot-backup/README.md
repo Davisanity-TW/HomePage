@@ -20,6 +20,8 @@ This folder contains an **encrypted** backup of the current Clawdbot instance (c
 - **DO NOT** commit the decryption password.
 
 ## Restore (quick)
+
+### Linux (systemd user)
 On the new machine:
 ```bash
 cd <HomePage repo>/ops/clawdbot-backup/scripts
@@ -30,4 +32,20 @@ Then:
 clawdbot status
 clawdbot cron list --all
 systemctl --user status clawdbot-gateway.service --no-pager
+```
+
+### macOS
+1) Initialize:
+```bash
+cd <HomePage repo>/ops/clawdbot-backup/scripts
+bash init_macos.sh
+```
+2) Restore:
+```bash
+bash restore_macos.sh
+```
+Then:
+```bash
+clawdbot status
+clawdbot cron list --all
 ```
