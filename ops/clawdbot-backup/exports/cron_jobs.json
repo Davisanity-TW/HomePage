@@ -1,0 +1,447 @@
+{
+  "jobs": [
+    {
+      "id": "ffd3269c-26d7-439d-a5f0-7a4ecbbaeded",
+      "agentId": "main",
+      "name": "TW close market report (David)",
+      "enabled": false,
+      "createdAtMs": 1769608706292,
+      "updatedAtMs": 1769667239220,
+      "schedule": {
+        "kind": "cron",
+        "expr": "40 13 * * 1-5",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "next-heartbeat",
+      "payload": {
+        "kind": "agentTurn",
+        "deliver": true,
+        "channel": "last",
+        "message": "請用繁體中文撰寫「台股收盤研究摘要」並直接輸出可發送給 David 的內容。口吻偏研究/解讀，但避免冗長與明確買賣指令。\n\n固定追蹤清單（TW）：2330、2454、0050、00631L、2308、8299、2344、2327。\n\n格式需求：\nA) 追蹤清單快覽（簡短但完整）：逐一列出收盤價、漲跌（點數與%）、成交量（張/股；若來源不同請註明）。\nB) 今日盤勢與族群輪動（重點）：\n  - 3–5 個「最強勢/最吸金」族群（用 bullet），每點包含：代表股/指標、為何強（催化/資金/技術）、延續性風險。\n  - 1–2 個「轉弱/風險升溫」族群，說明原因。\nC) 三大法人動向（必須包含）：外資、投信、自營商\n  - 今日買賣超（若可得）與相較前 1–3 日的變化（例如：由買轉賣/買超擴大等）\n  - 各自偏好的族群/重點個股（列出 3–10 檔具代表性者；可含追蹤清單以外）\nD) 重要新聞/事件：3–6 則，連結到大盤/族群或個股影響（優先挑與族群輪動、法人動向相關者）。\nE) 「潛在轉強名單」（你需要幫 David 找新標的）：\n  - 從追蹤清單以外，挑 4–8 檔台股（或 ETF）呈現技術面逐步轉強者。\n  - 分兩區：\n    - 穩健（大型/中大型、流動性佳）：2–4 檔\n    - 進攻（中小型/題材股）：2–4 檔\n  - 流動性過濾（進攻區）：近 20 日日均量 < 5,000 張 → 排除。\n  - 進攻區偏好：以 AI/半導體供應鏈延伸（例如 AI 伺服器、網通、記憶體、散熱、PCB、封測、材料等）為主；但若當天「非 AI 族群」有異常強勢（明顯吸金/擴散），請額外點名並簡述原因。\n  - 選股方法：綜合評分（均線結構 + 量能 + 相對強弱 RS）；MACD/KD 作為輔助確認訊號（例如 MACD 翻紅/柱狀體由縮轉擴、KD 低檔黃金交叉或高檔鈍化）。\n  - 每檔包含：所屬族群、為何列入（均線/量能/RS/型態 + MACD/KD 輔助）、關鍵價位（壓力/支撐或失守參考）、風險點。\nF) 一句話總結（風險提醒/情緒與趨勢，不給明確買賣指令）。\n\n若遇到休市/資料不足：請明確說明並改做「最新可得資訊摘要」，並將缺少的欄位標示為資料不足。"
+      },
+      "state": {
+        "lastRunAtMs": 1769665200000,
+        "lastStatus": "ok",
+        "lastDurationMs": 413545
+      }
+    },
+    {
+      "id": "7f7ff452-1c60-4558-98e1-34ee557c26f0",
+      "agentId": "main",
+      "name": "US close market report (David)",
+      "enabled": false,
+      "createdAtMs": 1769608714183,
+      "updatedAtMs": 1769640185723,
+      "schedule": {
+        "kind": "cron",
+        "expr": "35 6 * * 1-5",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "next-heartbeat",
+      "payload": {
+        "kind": "agentTurn",
+        "deliver": true,
+        "channel": "last",
+        "message": "請用繁體中文撰寫「美股收盤研究摘要」並直接輸出可發送給 David 的內容。口吻偏研究/解讀，但避免冗長與明確買賣指令。\n\n固定追蹤清單（US）：QQQ、NVDA、AMD、QCOM、MRVL、TSLA、GOOG、MU、AVGO。\n\n格式需求：\nA) 追蹤清單快覽：逐一列出收盤價、漲跌（點數與%）、成交量（股；若來源不同請註明）。\nB) 今日盤勢主軸與族群輪動（重點）：\n  - 3–5 個「最強勢/最吸金」主題/產業（用 bullet），每點包含：代表股/ETF、為何強（催化/宏觀/財報/資金/技術）、延續性風險。\n  - 1–2 個「轉弱/風險升溫」主題/產業。\nC) 重要新聞/事件：3–6 則（財報、指引、總經數據、Fed、地緣政治、產業消息），連結到追蹤標的或族群影響。\nD) 「潛在轉強名單」（幫 David 找新標的）：\n  - 從追蹤清單以外，挑 3–6 檔美股（或 ETF）呈現技術面逐步轉強者。\n  - 每檔包含：所屬族群、為何列入（均線/型態/量能/相對強弱）、關鍵價位（壓力/支撐或失守參考）、風險點。\n  - 優先流動性佳、族群共振或有事件催化者。\nE) 一句話總結（風險提醒/情緒與趨勢，不給明確買賣指令）。\n\n若遇到休市/資料不足：請明確說明並改做「最新可得資訊摘要」。\n"
+      },
+      "state": {
+        "lastRunAtMs": 1769639700000,
+        "lastStatus": "ok",
+        "lastDurationMs": 297170
+      }
+    },
+    {
+      "id": "87909d41-4002-4170-86d6-4e96dd6777ac",
+      "agentId": "main",
+      "name": "TW report -> weekly git log (David)",
+      "enabled": false,
+      "createdAtMs": 1769615263602,
+      "updatedAtMs": 1769667239230,
+      "schedule": {
+        "kind": "cron",
+        "expr": "45 13 * * 1-5",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "next-heartbeat",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "你要做兩件事：\n1) 產生一段「台股收盤研究摘要」(繁體中文，偏研究)；內容可以比 Telegram 版本更精煉，但需保留：族群輪動重點、三大法人重點、潛在轉強名單（分穩健/進攻，進攻需 20 日均量>=5000 張）。\n2) 把這段內容追加寫入到 stock_report git repo 的「本週台股檔案」並 push。\n\n實作規則：\n- repo 路徑固定：/home/ubuntu/clawd/stock_report\n- 週檔案命名（ISO week，以 Asia/Taipei 當地日期）：reports/tw/YYYY-Www.md\n- 若檔案不存在：建立並寫入標題：`# 台股每週收盤摘要 (YYYY-Www)`\n- 每天追加一個區塊：\n  - 二級標題：`## YYYY-MM-DD (Mon)`（日期用 Asia/Taipei）\n  - 下面貼上你今天生成的摘要\n- git 操作：`git pull --rebase` → 寫檔 → `git add` → `git commit -m \"TW YYYY-MM-DD\"` → `git push`\n- 若遇到執行失敗：在輸出最後加一段「寫入 git 失敗原因」。\n\n注意：請直接執行 shell 指令完成寫檔與 git push（不要只說明）。\n"
+      },
+      "state": {
+        "lastRunAtMs": 1769665613553,
+        "lastStatus": "ok",
+        "lastDurationMs": 101898
+      }
+    },
+    {
+      "id": "677c81c8-2049-4a14-b775-f4e088aef9fe",
+      "agentId": "main",
+      "name": "TW report -> weekly git log (15:05)",
+      "enabled": false,
+      "createdAtMs": 1769667239262,
+      "updatedAtMs": 1770729386117,
+      "schedule": {
+        "kind": "cron",
+        "expr": "5 15 * * 1-5",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "你要做兩件事：\n1) 從快取讀取台股收盤摘要：`/home/ubuntu/clawd/stock_report/tmp/tw-latest.md`\n   - 若檔案不存在或為空：自己生成一份「框架版摘要」(繁體中文)，但仍需包含追蹤清單表格（可全 NA）。\n2) 把摘要追加寫入到 stock_report repo 的本週台股檔案並 push。\n\n實作規則（務必用 exec 操作 git/檔案）：\n- repo：/home/ubuntu/clawd/stock_report\n- 週檔案：reports/tw/YYYY-Www.md（ISO week，Asia/Taipei）\n- 若檔案不存在：建立並寫入標題：`# 台股每週收盤摘要 (YYYY-Www)`\n- 每天追加一個區塊：\n  - 二級標題：`## YYYY-MM-DD (Mon)`（日期優先用 tw-latest-date.txt；否則用今天 Asia/Taipei）\n  - 下面貼上摘要全文（含表格）\n- git：`git pull --rebase` → 寫檔 → `git add -A` → `git commit -m \"TW YYYY-MM-DD\"` → `git push`\n- 失敗：輸出最後加「寫入 git 失敗原因」。"
+      },
+      "state": {
+        "lastRunAtMs": 1770707100000,
+        "lastStatus": "ok",
+        "lastDurationMs": 92571
+      }
+    },
+    {
+      "id": "d23a70fb-1178-4023-bc6b-cd7ad412cc2a",
+      "agentId": "main",
+      "name": "YT yutinghao summary (11:10 Taipei)",
+      "enabled": false,
+      "createdAtMs": 1769684316948,
+      "updatedAtMs": 1770055295611,
+      "schedule": {
+        "kind": "cron",
+        "expr": "10 11 * * 1-5",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "next-heartbeat",
+      "payload": {
+        "kind": "agentTurn",
+        "deliver": true,
+        "channel": "telegram",
+        "to": "8494991595",
+        "message": "每天 11:10（Asia/Taipei）針對游庭皓頻道最新一則直播回放做摘要並寫入週檔。\n\n重要：YouTube 常會要求驗證（cookies 失效/旋轉）。若 yt-dlp 顯示「Sign in to confirm you’re not a bot」，請回覆 David：『cookies 已失效，請重新匯出 cookies.txt』。\n\n執行（務必用 exec）：\n1) 設定：\n- COOKIES=/home/ubuntu/clawd/secrets/youtube-cookies.txt\n- YTDLP=/home/ubuntu/clawd/bin/yt-dlp\n- JSRT='--js-runtimes node:/usr/bin/node'\n2) 先嘗試抓最新影片 URL（優先 streams；失敗則用 channel videos 最新）。\n3) 嘗試抓字幕（優先 zh-TW，允許自動字幕）：\n- `$YTDLP $JSRT --cookies \"$COOKIES\" --skip-download --write-subs --write-auto-subs --sub-format vtt --sub-langs 'zh-TW,zh-Hant,zh-Hans,en' --ignore-no-formats <URL>`\n4) 若命令輸出包含：`Sign in to confirm you’re not a bot`：\n- 立刻回覆：`今日無法抓字幕：cookies 已失效（YouTube 要求驗證）。請重新匯出 cookies.txt 給我。\\n<URL>`\n5) 若命令成功但找不到任何 .vtt：\n- 回覆：`今日字幕未就緒/無法抓取（可能尚未產生或該影片未提供）。\\n<URL>`\n6) 若拿到字幕：轉純文字→依 David 指定格式摘要（含 0) 關鍵數字）→Telegram 發送→寫入 repo：/home/ubuntu/clawd/stock_report 的 `reports/youtube/YYYY-Www.md` 並 commit/push（訊息內附 URL）。\n"
+      },
+      "state": {
+        "lastRunAtMs": 1770001800001,
+        "lastStatus": "ok",
+        "lastDurationMs": 12160
+      }
+    },
+    {
+      "id": "de4ab6a2-bee8-4515-ab86-d4a137a6255e",
+      "agentId": "main",
+      "name": "MinIO knowledge site scheduled push (06/14/22 Taipei)",
+      "enabled": true,
+      "createdAtMs": 1769656547703,
+      "updatedAtMs": 1775743200000,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 6,14,22 * * *",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "每天固定時段（Asia/Taipei）更新 MinIO 原始碼讀碼知識庫並 push：06:00 / 14:00 / 22:00。\n\n目標 repo：/home/ubuntu/clawd/minio-knowledge (GitHub Pages: Davisanity-TW/MinIO_SourceCodeReading)\n\n本輪優先更新主題：\n- Trace：PutObject / Healing（補實際函式/檔案/呼叫鏈）\n- Troubleshooting：把你遇到的錯誤訊息（例如 `canceling remote connection`）補成可排查的筆記頁\n\n執行步驟（務必用 exec，且順序固定以避免 push 衝突）：\n1) `cd /home/ubuntu/clawd/minio-knowledge && git pull --rebase`\n2) 產出/更新內容（至少新增/改動 1 個 markdown）\n3) 更新 docs/changelog.md：每次都加一行「本次新增/補齊了什麼」\n4) `git status` 確認變更\n5) `git add -A`\n6) `git commit -m \"Update YYYY-MM-DD HH:mm\"`（時間用 Asia/Taipei）\n7) `git push`\n\n若 push 失敗（非 fast-forward）：\n- 只允許再做一次：`git pull --rebase && git push`\n- 若仍失敗：在輸出最後寫明錯誤訊息，停止重試。\n\n補充：若 David 在其他時間主動要求「請更新minio source code研究進度」或指定某個錯誤訊息要追（例如本題），主 session 會立即手動執行一次同樣的更新流程並 push。"
+      },
+      "state": {
+        "lastRunAtMs": 1775743200000,
+        "lastStatus": "ok",
+        "lastDurationMs": 208806,
+        "nextRunAtMs": 1775887200000
+      }
+    },
+    {
+      "id": "86682968-22a0-4402-92a9-20f397675ef4",
+      "agentId": "main",
+      "name": "Moltbook Digest 更新 → moltbook repo + 網站 (06/14 Taipei)",
+      "enabled": true,
+      "createdAtMs": 1773919565676,
+      "updatedAtMs": 1775714400001,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 6,14 * * *",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "【提醒】這是固定排程：Moltbook Digest 更新（繁中翻譯摘要版）→ push 到 https://github.com/Davisanity-TW/moltbook ，網站由 GitHub Pages 自動更新：https://davisanity-tw.github.io/moltbook/\n\n排程：每日 06:00 / 14:00（Asia/Taipei）\n\n抓文條件：\n- 全站 hot 前 200（sort=hot，50/頁，分頁至 200）\n- 全站 new 最新 400（sort=new，50/頁，分頁至 400）\n- 合併去重後依關鍵字評分（偏好：clawdbot/moltbot 用法、財經、AI應用、k8s、storage、markets）挑精選。\n\n輸出格式（每篇都必須用這個模板）：\n- `- 文章標題`\n- `  - 連結：<moltbook post url>`\n- `  - 外部連結：<url>`（若有）\n- `  - 中文摘要：`（繁體中文，4–6 點，用 1. 2. 3. 編號）\n- `  - 可複製給 molt 的任務：`（每篇各自一段 code block，內容要針對該篇文章；必須在 code block 內附上該篇 Moltbook 連結）\n\n禁止：\n- 不要輸出 submolt/post_id\n- 不要輸出全域的『你是 molt…挑 1～2 篇…』那種 prompt\n\n執行流程（務必用 exec）：\n1) `cd /home/ubuntu/clawd/moltbook`\n2) `GIT_ASKPASS=/home/ubuntu/clawd/bin/git_askpass_moltbook.sh GIT_TERMINAL_PROMPT=0 git pull --rebase`\n3) `python3 bin/moltbook_fetch_candidates.py` 產生 `/tmp/moltbook_candidates.json`\n4) 讀取 `/tmp/moltbook_candidates.json`，挑 10 篇（依分數/新鮮度），並在你的回覆中產出完整 markdown 區塊（含每篇繁中摘要 + 每篇獨立任務 code block）\n5) 用 exec 把該 markdown append 到 `reports/YYYYMM/MM-DD.md`（Asia/Taipei 日期）\n6) `git add reports`\n7) `git commit -m \"Moltbook digest $(TZ=Asia/Taipei date +%F) $(TZ=Asia/Taipei date +%H:%M)\"`\n8) `GIT_ASKPASS=/home/ubuntu/clawd/bin/git_askpass_moltbook.sh GIT_TERMINAL_PROMPT=0 git push`\n",
+        "deliver": false
+      },
+      "state": {
+        "nextRunAtMs": 1775887200000,
+        "lastRunAtMs": 1775714528134,
+        "lastStatus": "ok",
+        "lastDurationMs": 267585
+      }
+    },
+    {
+      "id": "1290d8d4-1386-4d9b-82f3-831b5ba20b26",
+      "agentId": "main",
+      "name": "Finance news quick digest (5h, TW+Global) -> Telegram + site (08/16/21 Taipei)",
+      "enabled": true,
+      "createdAtMs": 1769960475664,
+      "updatedAtMs": 1775721600001,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8,16,21 * * *",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "這是一則【固定時段】的財經新聞快報：近 **5 小時**（台灣+國際，RSS 去重）→ **Telegram 發送**，並且**寫入網站週頁面**（stock_report repo）後 commit/push。\n\n⚠️ Telegram 發送規則（避免再次失敗）：\n- 使用 message 工具時，**必須**指定 `channel=\"telegram\"` 且 `to=\"8494991595\"`\n- 不要用 `target=\"current\"`\n- 務必切段避免 400 too long\n\n排程（Asia/Taipei）：08:00 / 16:00 / 21:00\n\n重要格式（務必遵守）：\n- 語言：繁體中文\n- 台灣最多 8、國際最多 8\n- 國際新聞若標題/摘要為英文：**請翻譯成繁體中文**（可選擇在括號保留英文原文）\n- 今日主軸：3 點\n- 需要追蹤的事件：3 點\n\n來源設定檔：/home/ubuntu/clawd/stock_report/config/finance_sources.yaml\n\n✅ 新增：Similarity gate（避免快報內容過度模板化/自我抄襲）\n- 在產出 `/tmp/finance_news_msg.txt` 後、送 Telegram / 寫入週頁前，先跑：\n  `python3 bin/similarity_gate.py --draft /tmp/finance_news_msg.txt --section finance_news --repo-root /home/ubuntu/clawd/stock_report --top 5`\n- 若 gate 退出碼為 1（BLOCK）：本 job 直接失敗並停止送出/寫入。\n\n執行步驟（務必用 exec，且順序固定避免 git 衝突）：\n\nA) 產生原始新聞清單\n1) `cd /home/ubuntu/clawd/stock_report`\n2) `python3 bin/finance_news_collect.py --window-hours 5 > /tmp/finance_news_raw.json`\n\nB) 產出快報內容（由你直接生成，不要輸出英文）\n- 讀取 `/tmp/finance_news_raw.json`（JSON 格式，頂層 keys: generated_at/window_hours/cutoff_utc/regions）\n- 依 published_at（新→舊）與 weight（高→低）挑選：台灣 8 則、國際 8 則\n- 每則包含：標題、1 句話重點、可能影響、關鍵數字、原文 link、來源\n- 最後固定輸出主軸 3 點／追蹤 3 點\n- 把 B) 生成的全文寫入：`/tmp/finance_news_msg.txt`\n\nB2) Similarity gate（新增）\n1) `cd /home/ubuntu/clawd/stock_report`\n2) `python3 bin/similarity_gate.py --draft /tmp/finance_news_msg.txt --section finance_news --repo-root /home/ubuntu/clawd/stock_report --top 5`\n\nC) Telegram 發送（務必用 message 工具）\n1) 用 repo 內工具切段：\n   - `python3 bin/split_telegram_message.py --in /tmp/finance_news_msg.txt --out /tmp/finance_news_chunks.json --max-chars 3500 --prefix-first \"【財經新聞快報｜近5小時】\\n\"`\n2) 用 repo 內工具把 chunks JSON 轉成多個 txt 檔：\n   - `python3 bin/json_chunks_to_files.py --in /tmp/finance_news_chunks.json --out-pattern /tmp/finance_chunk_%02d.txt --count-file /tmp/finance_chunk_count.txt`\n3) 讀取 `/tmp/finance_chunk_count.txt` 得到 N，然後逐段送出：\n   - 對 i=1..N：用 exec `cat /tmp/finance_chunk_XX.txt` 取得 chunk 內容\n   - 每段各送一則 `message(action=send, channel=telegram, to=8494991595, message=<chunk>)`\n\nD) 寫入網站（每週一頁；並 push；同時同步 docs）\n1) `cd /home/ubuntu/clawd/stock_report`\n2) `git stash push -u -m \"autostash before finance_news pull\" || true`\n3) `git pull --rebase`\n4) `mkdir -p reports/finance_news`\n5) `WEEK=$(TZ=Asia/Taipei date +%G-W%V)`\n6) `DAY=$(TZ=Asia/Taipei date +%F)`\n7) `HM=$(TZ=Asia/Taipei date +%H:%M)`\n8) `FILE=\"reports/finance_news/${WEEK}.md\"`\n9) 若檔案不存在：建立並寫入標題 `# 財經新聞快報 (${WEEK})` + 空行\n10) 追加區塊：\n   - `## $DAY $HM`\n   - 下面貼上 B) 的全文（用 exec `cat /tmp/finance_news_msg.txt` append）\n11) `node bin/sync_reports.mjs`\n12) `git add reports docs/reports`\n13) `git commit -m \"Finance news ${DAY} ${HM}\" || exit 0`\n14) `git push`\n\n注意：\n- 若來源抓取失敗（例如 Reuters 401），在訊息/週頁底部用「資料來源狀態」簡短列出失敗來源。\n- 不要在訊息或週頁中包含任何 secrets 或本機路徑。\n",
+        "deliver": true,
+        "channel": "telegram",
+        "to": "8494991595"
+      },
+      "state": {
+        "lastRunAtMs": 1775721696031,
+        "lastStatus": "ok",
+        "lastDurationMs": 307717,
+        "nextRunAtMs": 1775894400000
+      }
+    },
+    {
+      "id": "8956cd55-a5d5-4138-bb03-91cc0a9f227b",
+      "agentId": "main",
+      "name": "TEMP Iran-US war news scan (08:30/10:30/16:30/20:30 Taipei) -> Telegram (David)",
+      "enabled": true,
+      "createdAtMs": 1775013527577,
+      "updatedAtMs": 1775737800000,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 8,10,16,20 * * *",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "短期任務：每天 08:30 / 10:30 / 16:30 / 20:30（Asia/Taipei）巡檢是否有「美國 vs 伊朗 戰爭」最新重大新聞（CNN / BBC / 台灣新聞網站）。\n\n規則：\n- 只在「有新進展」時才發送 Telegram（3–5 則）。若無，則不要發送（只輸出 `ok`）。\n- 內容用繁體中文；每則包含：標題（可附英文原文於括號）、1 句重點、來源、連結。\n- 去重：同一事件不同媒體只留 1 則；優先 CNN/BBC，其次台灣媒體。\n- 時效：優先 24 小時內；若只有舊聞就視為無新進展。\n\n⚠️ Brave web_search 參數限制（避免 422）：\n- search_lang enum：中文用 search_lang=\"zh-hant\"；英文用 search_lang=\"en\" 或 \"en-gb\"。\n- ui_lang enum（地區語系）：繁中介面用 ui_lang=\"zh-HK\"。\n\n⚠️ Brave Free plan rate limit（避免 429）：\n- 連續 web_search 呼叫之間至少 sleep 1200ms。\n- 若遇到 429 RATE_LIMITED：\n  - 不要重試；直接略過該 query，並在最終輸出底部加一行「資料來源狀態：Brave rate limited（台灣媒體查詢略過）」；其餘來源照常。\n\n執行：\n1) 用 web_search（各抓前 5 筆；每次呼叫都要帶 search_lang；台灣查詢同時帶 ui_lang；每次呼叫之間 sleep 1200ms）：\n   - CNN：query=\"US Iran war site:cnn.com\"  search_lang=\"en\"  country=\"US\"\n   - BBC：query=\"US Iran war site:bbc.co.uk\" search_lang=\"en-gb\" country=\"GB\"\n   - 台灣：query=\"美國 伊朗 戰爭 (site:tw.news.yahoo.com OR site:ettoday.net OR site:udn.com OR site:cna.com.tw)\" search_lang=\"zh-hant\" ui_lang=\"zh-HK\" country=\"TW\"\n2) 彙整候選連結（最多 10），挑出 3–5 則最重要且不重複的「新進展」。\n3) 若挑得出 >=1 則：用 message 工具送到 Telegram（channel=telegram, to=8494991595）。\n   - 訊息標題：`【美國×伊朗｜戰事最新】` + 日期時間（台北）\n4) 若沒有：不要用 message；輸出 `ok`。\n"
+      },
+      "state": {
+        "nextRunAtMs": 1775896200000,
+        "lastRunAtMs": 1775737800000,
+        "lastStatus": "ok",
+        "lastDurationMs": 36777
+      }
+    },
+    {
+      "id": "7f5d6b73-3180-46df-b3d6-8fc253fd2ec5",
+      "agentId": "main",
+      "name": "TW close prep (cache)",
+      "enabled": true,
+      "createdAtMs": 1769667239241,
+      "updatedAtMs": 1775721000003,
+      "schedule": {
+        "kind": "cron",
+        "expr": "50 15 * * 1-5",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "目標：15:50(Asia/Taipei) 產生台股收盤摘要快取（不送 Telegram、不寫 git），供 16:00 發送與 17:12 寫入週檔使用。\n\n**務必只跑一個 `bash -lc` 區塊**，確保原子寫入（先寫 /tmp 再 mv），避免留下半套快取。\n\n請用 exec 執行：\n\n```bash\nbash -lc 'set -euo pipefail\ncd /home/ubuntu/clawd/stock_report\nDAY=$(TZ=Asia/Taipei date +%F)\n\n# 1) 大盤（失敗也要輸出 error）\necho \"{\\\"ok\\\":false,\\\"error\\\":\\\"not_fetched\\\"}\" > /tmp/tw-index.json\npython3 - <<\"PY\"\nimport json,urllib.request\nurl=\"https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?response=json\"\ntry:\n  data=json.loads(urllib.request.urlopen(url,timeout=20).read().decode(\"utf-8\"))\n  out={\"ok\":True,\"source\":url,\"payload\":data}\nexcept Exception as e:\n  out={\"ok\":False,\"source\":url,\"error\":str(e)}\njson.dump(out,open(\"/tmp/tw-index.json\",\"w\",encoding=\"utf-8\"),ensure_ascii=False)\nPY\nmv /tmp/tw-index.json tmp/tw-index.json\n\n# 2) 個股/法人資料\npython3 bin/tw_report_data.py --date \"$DAY\" --codes 2330,0050,00631L,2454,2485,3481,2317,2308,8299,6669,2344,2327,2449,2357,3017,2408,2337,3491,6285,5388,8086,3105,4979,3163,3363,3234,3081,6442,3450 > /tmp/tw-data.json\ntest -s /tmp/tw-data.json && mv /tmp/tw-data.json tmp/tw-data.json\n\n# 3) 表格\npython3 bin/tw_make_table.py tmp/tw-data.json > /tmp/tw-table.md\ntest -s /tmp/tw-table.md && mv /tmp/tw-table.md tmp/tw-table.md\n\n# 4) 新聞 raw（允許部分來源失敗；但要落地到 tmp 供 16:55 refresh 重用）\npython3 bin/finance_news_collect.py --window-hours 10 > /tmp/tw_news_raw.json\ntest -s /tmp/tw_news_raw.json && mv /tmp/tw_news_raw.json tmp/tw_news_raw.json\n\n# 5) 摘要正文\npython3 bin/tw_make_summary.py --date \"$DAY\" --index tmp/tw-index.json --data tmp/tw-data.json --news tmp/tw_news_raw.json --out /tmp/tw-summary.md\ntest -s /tmp/tw-summary.md && mv /tmp/tw-summary.md tmp/tw-summary.md\n\n# 6) 組裝 latest\ncat tmp/tw-table.md > /tmp/tw-latest.md\necho \"\" >> /tmp/tw-latest.md\ncat tmp/tw-summary.md >> /tmp/tw-latest.md\nmv /tmp/tw-latest.md tmp/tw-latest.md\necho \"$DAY\" > tmp/tw-latest-date.txt\n\n# 7) 補公司名（任何代號需附公司名）\npython3 bin/tw_md_add_names.py --in tmp/tw-latest.md --out /tmp/tw-latest-named.md\ntest -s /tmp/tw-latest-named.md && mv /tmp/tw-latest-named.md tmp/tw-latest-named.md\n\necho \"OK: TW cache generated for $DAY\"'\n```\n\n注意：本 job 不得使用 message 工具、不 deliver。",
+        "deliver": false
+      },
+      "state": {
+        "lastRunAtMs": 1775721000004,
+        "lastStatus": "ok",
+        "lastDurationMs": 53776,
+        "nextRunAtMs": 1776066600000
+      }
+    },
+    {
+      "id": "60c24d5e-72ce-4a07-a7e8-72b4a9f4ae35",
+      "agentId": "main",
+      "name": "TW close send 16:00 (David)",
+      "enabled": true,
+      "createdAtMs": 1769667239251,
+      "updatedAtMs": 1775721600001,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 16 * * 1-5",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "deliver": true,
+        "channel": "telegram",
+        "to": "8494991595",
+        "message": "請在 16:00 (Asia/Taipei) 發送台股收盤摘要（精簡版）給 David。\n\n目的：避免表格過長導致 Telegram 400 too long；完整表格請以網站週檔為準。\n\n規則：\n- 優先讀取 `/home/ubuntu/clawd/stock_report/tmp/tw-summary.md` 並原樣輸出。\n- 若 tw-summary.md 不存在或為空：改讀 `/home/ubuntu/clawd/stock_report/tmp/tw-latest-named.md`，並只輸出當日的 A/B/V/D/E 段落（不要包含追蹤表格）。\n- 若仍無可用檔案：輸出一句：`今日台股摘要尚未生成，請稍後（我會檢查 tw cache cron）。`\n- 訊息最後固定加一行：`完整表格與週檔：stock_report 網站 /reports/tw/`。\n\n步驟（務必用 exec）：\n1) 檢查 tw-summary.md 是否存在且非空；若是，直接輸出其全文。\n2) 否則從 tw-latest-named.md 抽出今日段落（不含表格）輸出。\n3) 最後附上網站提示行。"
+      },
+      "state": {
+        "lastRunAtMs": 1775721600001,
+        "lastStatus": "ok",
+        "lastDurationMs": 96024,
+        "nextRunAtMs": 1776067200000
+      }
+    },
+    {
+      "id": "5479afdb-7c3a-482d-9f2a-022e3bf553d8",
+      "agentId": "main",
+      "name": "TW insti refresh (update cache+summary) 16:55",
+      "enabled": true,
+      "createdAtMs": 1770191341005,
+      "updatedAtMs": 1775724900000,
+      "schedule": {
+        "kind": "cron",
+        "expr": "55 16 * * 1-5",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "目標：16:55(Asia/Taipei) 重新抓取三大法人買賣超，並更新台股快取（不送 Telegram、不寫 git）。\n\n步驟（務必用 exec；原子寫入：先寫 /tmp 再 mv）：\n1) cd /home/ubuntu/clawd/stock_report\n2) TODAY=$(TZ=Asia/Taipei date +%F)\n   DAY=$(cat tmp/tw-latest-date.txt 2>/dev/null || echo \"$TODAY\")\n   # 若 DAY 不是今天，代表 prep 沒更新成功或日期檔殘留：直接用今天避免抓錯日\n   if [ \"$DAY\" != \"$TODAY\" ]; then DAY=\"$TODAY\"; fi\n\n3) 重新抓個股/法人 → 更新 tmp/tw-data.json\n   python3 bin/tw_report_data.py --date \"$DAY\" --codes 2330,0050,00631L,2454,2485,3481,2317,2308,8299,6669,2344,2327,2449,2357,3017,2408,2337,3491,6285,5388,8086,3105,4979,3163,3363,3234,3081,6442,3450 > /tmp/tw-data.json\n   test -s /tmp/tw-data.json && mv /tmp/tw-data.json tmp/tw-data.json\n\n4) 重做表格快取\n   python3 bin/tw_make_table.py tmp/tw-data.json > /tmp/tw-table.md\n   test -s /tmp/tw-table.md && mv /tmp/tw-table.md tmp/tw-table.md\n\n5) 重做摘要正文（沿用原本的 index/news 快取）\n   python3 bin/tw_make_summary.py --date \"$DAY\" --index tmp/tw-index.json --data tmp/tw-data.json --news tmp/tw_news_raw.json --out /tmp/tw-summary.md\n   test -s /tmp/tw-summary.md && mv /tmp/tw-summary.md tmp/tw-summary.md\n\n6) 組裝 latest\n   cat tmp/tw-table.md > /tmp/tw-latest.md\n   echo \"\" >> /tmp/tw-latest.md\n   cat tmp/tw-summary.md >> /tmp/tw-latest.md\n   mv /tmp/tw-latest.md tmp/tw-latest.md\n\n7) 補公司名\n   python3 bin/tw_md_add_names.py --in tmp/tw-latest.md --out /tmp/tw-latest-named.md\n   test -s /tmp/tw-latest-named.md && mv /tmp/tw-latest-named.md tmp/tw-latest-named.md\n\n8) echo \"OK: TW insti refreshed for $DAY\"",
+        "deliver": false
+      },
+      "state": {
+        "lastRunAtMs": 1775724900000,
+        "lastStatus": "ok",
+        "lastDurationMs": 39341,
+        "nextRunAtMs": 1776070500000
+      }
+    },
+    {
+      "id": "b8c3df2c-7a7b-4b7c-8c1f-5f9a7f0f5b5a",
+      "agentId": "main",
+      "name": "TW weekly write+push (17:10, daily)",
+      "enabled": true,
+      "createdAtMs": 1770644812284,
+      "updatedAtMs": 1775725920001,
+      "schedule": {
+        "kind": "cron",
+        "expr": "12 17 * * 1-5",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "目標：每天 17:12 (Asia/Taipei) 把『台股收盤摘要（含追蹤清單表格）』寫入 stock_report 台股週檔並 push（不送 Telegram）。\n\n本 job 只做「寫週檔 + 同步 docs + git push」，資料一律從快取讀取：\n- 摘要正文：`/home/ubuntu/clawd/stock_report/tmp/tw-latest-named.md`\n- 表格：`/home/ubuntu/clawd/stock_report/tmp/tw-table.md`\n- 日期：優先 `tmp/tw-latest-date.txt`；若檔案不存在/內容不是今天（Asia/Taipei），則改用今天日期。\n\n**務必用 exec 執行下列單一 bash 區塊**（避免半套寫檔）：\n\n```bash\nbash -lc 'set -euo pipefail\ncd /home/ubuntu/clawd/stock_report\n\nTODAY=$(TZ=Asia/Taipei date +%F)\nDAY=$(cat tmp/tw-latest-date.txt 2>/dev/null || echo \"$TODAY\")\n# 若 DAY 不是今天，代表 prep 沒更新成功：直接用今天，避免漏寫\nif [ \"$DAY\" != \"$TODAY\" ]; then DAY=\"$TODAY\"; fi\n\n# 檔案存在檢查\ntest -s tmp/tw-latest-named.md\ntest -s tmp/tw-table.md\n\nDOW=$(TZ=Asia/Taipei date -d \"$DAY\" +%a)\nWEEK=$(TZ=Asia/Taipei date -d \"$DAY\" +%G-W%V)\nFILE=\"reports/tw/${WEEK}.md\"\nmkdir -p reports/tw\n\ngit stash push -u -m \"autostash before TW weekly pull\" || true\ngit pull --rebase\n\nif [ ! -f \"$FILE\" ]; then\n  printf \"# 台股每週收盤摘要 (%s)\\n\\n\" \"$WEEK\" > \"$FILE\"\nfi\n\npython3 - \"$DAY\" <<\"PY\"\nimport re,sys\np=\"tmp/tw-latest-named.md\"\ntext=open(p,\"r\",encoding=\"utf-8\").read().replace(\"\\r\\n\",\"\\n\")\nday=sys.argv[1]\npat=re.compile(rf\"^##\\s+{re.escape(day)}(?:\\s*\\([^\\)]*\\))?\\s*$\", re.M)\nm=pat.search(text)\nif not m:\n  raise SystemExit(f\"cannot find day section in {p}: {day}\")\nbody=text[m.end():].lstrip(\"\\n\")\nopen(\"/tmp/tw-day-body.md\",\"w\",encoding=\"utf-8\").write(body)\nPY\n\nif grep -q \"^## ${DAY} \" \"$FILE\" || grep -q \"^## ${DAY}$\" \"$FILE\"; then\n  python3 bin/tw_weekly_update_table.py --week-file \"$FILE\" --date \"$DAY\" --table-file tmp/tw-table.md\nelse\n  {\n    echo \"## ${DAY} (${DOW})\"\n    echo\n    cat /tmp/tw-day-body.md\n    echo\n    echo \"#### 追蹤清單（收盤）\"\n    cat tmp/tw-table.md\n    echo\n  } >> \"$FILE\"\nfi\n\n# Similarity gate（避免週檔內容過度模板化/自我抄襲）\npython3 bin/similarity_gate.py --draft \"$FILE\" --section tw --top 5\n\nnode bin/sync_reports.mjs\n\ngit add reports docs/reports docs/index.md\n\ngit commit -m \"TW ${DAY}\" || exit 0\n\ngit push\n\necho \"OK: pushed ${FILE} (${DAY})\"'\n```\n\n若快取不存在/為空：請在輸出最後清楚列出缺少的檔案並結束（不要寫 git）。",
+        "deliver": false
+      },
+      "state": {
+        "nextRunAtMs": 1776071520000,
+        "lastRunAtMs": 1775725920001,
+        "lastStatus": "ok",
+        "lastDurationMs": 85036
+      }
+    },
+    {
+      "id": "3e616c9a-0666-4ae4-9dbd-4bca80fd1a87",
+      "agentId": "main",
+      "name": "WTXP& 台指期盤後行情 (21:40 Taipei) -> Telegram",
+      "enabled": true,
+      "createdAtMs": 1773919108074,
+      "updatedAtMs": 1775742000003,
+      "schedule": {
+        "kind": "cron",
+        "expr": "40 21 * * 1-5",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "deliver": true,
+        "channel": "telegram",
+        "to": "8494991595",
+        "message": "【提醒】21:40 台指期盤後(WTXP&) 當日行情查詢（週一～週五）。\n\n目標：抓到「台指期盤後」當日行情（最後成交價）與漲跌（點數與%），並發送 Telegram 給 David；訊息內務必附 Wantgoo 連結。\n\n注意：Wantgoo 可能 403 反爬；已改用 TAIFEX 官方頁面抓盤後交易時段資料（MarketCode=1），再附 Wantgoo 連結供自行查看。\n\n資料來源（抓數字用）：https://www.taifex.com.tw/cht/3/futDailyMarketReport\n（盤後交易時段 MarketCode=1；商品 TX）\n\n執行（務必用 exec 跑這段，會輸出已整理好的文字）：\n\n```bash\nbash -lc 'python3 - <<\"PY\"\nimport re,requests,datetime as dt\nfrom zoneinfo import ZoneInfo\n\nday=dt.datetime.now(ZoneInfo(\"Asia/Taipei\")).strftime(\"%Y/%m/%d\")\nurl=\"https://www.taifex.com.tw/cht/3/futDailyMarketReport\"\nform={\"queryDate\":day,\"commodity_id\":\"TX\",\"MarketCode\":\"1\"}\nhtml=requests.post(url,data=form,timeout=30).text\nm=re.search(r\"<table[^>]*class=\\\"table_f[\\s\\S]*?</table>\",html)\nif not m:\n  raise SystemExit(\"parse_error: table_f not found\")\ntrs=re.findall(r\"<tr[^>]*>[\\s\\S]*?</tr>\",m.group(0))\n# find first TX row\nrow=None\nfor tr in trs:\n  txt=re.sub(r\"\\s+\",\" \",re.sub(r\"<[^<]+?>\",\" \",tr)).strip()\n  if txt.startswith(\"TX \"):\n    row=txt\n    break\nif not row:\n  raise SystemExit(\"parse_error: TX row not found\")\nparts=row.split()\n# parts: [TX, contractMonth, open, high, low, last, changeSign+change, pctSign+pct, vol, ...]\ncontract=parts[1]\nlast=parts[5]\nchg=parts[6].replace(\"▼\",\"-\").replace(\"▲\",\"+\")\npct=parts[7].replace(\"▼\",\"-\").replace(\"▲\",\"+\")\nvol=parts[8]\nprint(f\"台指期盤後（TAIFEX TX，{contract}） {day.replace('/','-')}\\n行情：{last}\\n漲跌：{chg}（{pct}）\\n成交量：{vol}\\n連結：https://www.wantgoo.com/futures/wtxp&\")\nPY'\n```\n\n若上述 exec 失敗：仍要發一則訊息，說明『目前無法自動擷取數字』並附上 Wantgoo 連結。\n"
+      },
+      "state": {
+        "nextRunAtMs": 1776087600000,
+        "lastRunAtMs": 1775742000004,
+        "lastStatus": "ok",
+        "lastDurationMs": 57419
+      }
+    },
+    {
+      "id": "1c26d12b-8b0a-4b59-a140-6e63c6f5325b",
+      "agentId": "main",
+      "name": "US close prep (cache)",
+      "enabled": true,
+      "createdAtMs": 1769640185734,
+      "updatedAtMs": 1775687280001,
+      "schedule": {
+        "kind": "cron",
+        "expr": "28 6 * * 2-6",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "目標：讓 David 在 06:35 (Asia/Taipei) 準時收到「美股收盤研究摘要」，且內容不只有股價表格，也要有可讀的盤勢解讀。\n\n資料來源（免 API key）：\n- 個股/ETF 收盤價與成交量：Stooq 日資料 CSV\n- VIX：CBOE VIX_History.csv\n- 金/銀/BTC：Stooq spot series（XAUUSD/XAGUSD/BTCUSD）\n\n步驟（務必用 exec，且順序固定）：\n1) `cd /home/ubuntu/clawd/stock_report`\n2) 交易日（ET）：\n   - `DATE=$(python3 -c 'import datetime as dt; from zoneinfo import ZoneInfo; now=dt.datetime.now(ZoneInfo(\"America/New_York\")); d=now.date(); import datetime as dd;\\nif d.weekday()==5: d=d-dd.timedelta(days=1)\\nelif d.weekday()==6: d=d-dd.timedelta(days=2)\\nprint(d.isoformat())')`\n3) 產生行情快取（原子寫入，避免空檔）：\n   - `python3 bin/us_report_data.py --date \"$DATE\" > /tmp/us-data.json`\n   - `test -s /tmp/us-data.json && mv /tmp/us-data.json tmp/us-data.json`\n   - `python3 bin/us_make_table.py tmp/us-data.json > /tmp/us-table.md && mv /tmp/us-table.md tmp/us-table.md`\n4) 產生摘要正文（用程式，避免出現「待補」模板）：\n   - `python3 bin/us_make_summary.py --date \"$DATE\" --data tmp/us-data.json --out /tmp/us-summary.md`\n   - `test -s /tmp/us-summary.md && mv /tmp/us-summary.md tmp/us-summary.md`\n5) 組裝快取檔：\n   - `cat tmp/us-table.md > /tmp/us-latest.md`\n   - `echo \"\" >> /tmp/us-latest.md`\n   - `cat tmp/us-summary.md >> /tmp/us-latest.md`\n   - `mv /tmp/us-latest.md tmp/us-latest.md`\n   - `echo \"$DATE\" > tmp/us-latest-date.txt`\n\n注意：\n- 這個任務不要送 Telegram（不要 deliver）；只要把快取檔案寫好即可。\n- 若抓取失敗仍要產出框架版，但需要在摘要最上方寫清楚失敗原因。"
+      },
+      "state": {
+        "lastRunAtMs": 1775687280001,
+        "lastStatus": "ok",
+        "lastDurationMs": 83424,
+        "nextRunAtMs": 1776119280000
+      }
+    },
+    {
+      "id": "76362213-b81e-4fb1-ac00-a0d0c0bb04d0",
+      "agentId": "main",
+      "name": "US close send 06:35 (David)",
+      "enabled": true,
+      "createdAtMs": 1769640185745,
+      "updatedAtMs": 1775687700001,
+      "schedule": {
+        "kind": "cron",
+        "expr": "35 6 * * 2-6",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "deliver": true,
+        "channel": "telegram",
+        "to": "8494991595",
+        "message": "請讀取並輸出快取的美股收盤摘要，確保在 06:35 (Asia/Taipei) 準時發送給 David。\n\n步驟（務必用工具 exec）：\n1) 檢查 `/home/ubuntu/clawd/stock_report/tmp/us-latest.md` 是否存在且非空。\n2) 若存在：直接把檔案內容原樣輸出（你的最終輸出就等於要發送的訊息）。\n3) 若不存在或為空：輸出一句簡短說明（例如：\"今日摘要尚未生成，請稍後。\"），並在最後附上一行提示我需要檢查 cron/cache。\n"
+      },
+      "state": {
+        "lastRunAtMs": 1775687700001,
+        "lastStatus": "ok",
+        "lastDurationMs": 33061,
+        "nextRunAtMs": 1776119700000
+      }
+    },
+    {
+      "id": "c64af12d-bdb0-414b-8e98-0cd29268b094",
+      "agentId": "main",
+      "name": "US report -> weekly git log (David)",
+      "enabled": true,
+      "createdAtMs": 1769615273389,
+      "updatedAtMs": 1775688000003,
+      "schedule": {
+        "kind": "cron",
+        "expr": "40 6 * * 2-6",
+        "tz": "Asia/Taipei"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "你要做兩件事：\n1) 從快取讀取「美股收盤研究摘要」：`/home/ubuntu/clawd/stock_report/tmp/us-latest.md`\n   - 若檔案不存在或為空：改為自己生成一份「框架版摘要」(繁體中文，偏研究但精煉)，並明確標註資料不足。\n2) 把摘要追加寫入到 stock_report git repo 的「本週美股檔案」並 push。\n\n重要：為確保網站立即更新，本 job 會在 commit 前執行 `node bin/sync_reports.mjs`，把 `reports/` 同步到 `docs/reports/`，並一併 commit/push。\n\n✅ 新增：Similarity gate（避免週檔內容過度模板化/自我抄襲）\n- 在寫入週檔後、sync/commit 前，先跑：\n  `python3 bin/similarity_gate.py --draft \"$FILE\" --section us --top 5`\n- 若 gate 退出碼為 1（BLOCK）：本 job 直接失敗並停止 push。\n\n實作規則（務必用工具 exec 直接操作 git/檔案）：\n- repo 路徑：/home/ubuntu/clawd/stock_report\n- 週檔案命名（ISO week，以 Asia/Taipei 當地日期）：reports/us/YYYY-Www.md\n- 若檔案不存在：建立並寫入標題：`# 美股每週收盤摘要 (YYYY-Www)`\n- 每天追加一個區塊：\n  - 二級標題：`## YYYY-MM-DD (Mon)`（日期用 Asia/Taipei；優先用 us-latest-date.txt 若存在）\n  - 下面貼上摘要全文\n- git：\n  `git stash push -u -m \"autostash before US weekly pull\" || true`\n  → `git pull --rebase`\n  → 寫檔\n  → `python3 bin/similarity_gate.py --draft \"$FILE\" --section us --top 5`\n  → `node bin/sync_reports.mjs`\n  → `git add reports docs/reports`\n  → `git commit -m \"US YYYY-MM-DD\" || exit 0`\n  → `git push`\n- 失敗：輸出最後加「寫入 git 失敗原因」。\n"
+      },
+      "state": {
+        "lastRunAtMs": 1775688000003,
+        "lastStatus": "ok",
+        "lastDurationMs": 35249,
+        "nextRunAtMs": 1776120000000
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+● clawdbot-gateway.service - Clawdbot Gateway (v2026.1.24-3)
+     Loaded: loaded (/home/ubuntu/.config/systemd/user/clawdbot-gateway.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2026-04-11 03:10:00 UTC; 8min ago
+   Main PID: 1630314 (clawdbot)
+      Tasks: 23 (limit: 9283)
+     Memory: 355.4M (peak: 682.7M)
+        CPU: 23.185s
+     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/clawdbot-gateway.service
+             ├─1630314 clawdbot
+             ├─1630321 clawdbot-gateway
+             ├─1630585 /bin/bash -c "set -e\ncd /home/ubuntu/clawd\n(systemctl --user status clawdbot-gateway.service --no-pager || true) > HomePage/ops/clawdbot-backup/exports/systemd_gateway_status.txt\n(systemctl --user cat clawdbot-gateway.service --no-pager || true) > HomePage/ops/clawdbot-backup/exports/systemd_gateway_unit.txt\n"
+             ├─1630586 /bin/bash -c "set -e\ncd /home/ubuntu/clawd\n(systemctl --user status clawdbot-gateway.service --no-pager || true) > HomePage/ops/clawdbot-backup/exports/systemd_gateway_status.txt\n(systemctl --user cat clawdbot-gateway.service --no-pager || true) > HomePage/ops/clawdbot-backup/exports/systemd_gateway_unit.txt\n"
+             └─1630587 systemctl --user status clawdbot-gateway.service --no-pager
+
+Apr 11 03:14:29 ip-172-31-1-8 node[1630321]: 6. 跑 `clawdbot status` + `clawdbot cron list`（或我提供的檢查指令）確認 cron/服務都回來
+Apr 11 03:14:29 ip-172-31-1-8 node[1630321]: ---
+Apr 11 03:14:29 ip-172-31-1-8 node[1630321]: 把上面 3 點（repo URL / 路徑 / secrets 策略）回我後，我就會：
+Apr 11 03:14:29 ip-172-31-1-8 node[1630321]: - 直接在這台機器把備份資料產出
+Apr 11 03:14:29 ip-172-31-1-8 node[1630321]: - 寫進你指定 repo 的指定路徑
+Apr 11 03:14:29 ip-172-31-1-8 node[1630321]: - 產出「新機器一鍵還原」的 restore prompt（含驗證步驟）
+Apr 11 03:14:29 ip-172-31-1-8 node[1630321]: 你希望 secrets 用哪種方式加密比較好？
+Apr 11 03:14:29 ip-172-31-1-8 node[1630321]: - A) `openssl` 對稱加密（最通用，搬家最快）
+Apr 11 03:14:29 ip-172-31-1-8 node[1630321]: - B) `age`（比較現代，但新機也要裝 age）
+Apr 11 03:14:29 ip-172-31-1-8 node[1630321]: - C) 你 repo 本身是 private，仍然只放加密檔（我推薦）
