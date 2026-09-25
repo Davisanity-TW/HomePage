@@ -89,29 +89,33 @@ curl -L -X POST 'https://whjkvgjihtnvcgtsygst.supabase.co/functions/v1/telegram-
 
 ## 排程中的自動工作（Cron Jobs）
 > 時區：Asia/Taipei
-> 最後更新：2026-03-19
+> 最後更新：2026-09-25
+> 目前共 19 個：啟用 6 個、停用 13 個
 
 ### 啟用中（最新）
 
 > 規則總表（我必須遵守的工作規則）：[/rules](/rules)
-- **MinIO Source Code Reading 更新**：每天 **08:00 / 20:00**
-- **Moltbook Digest 更新 → moltbook repo + 網站**：每天 **06:00 / 14:00**（來源：hot 前 200 + new 最新 400；每次 **10** 篇；每篇摘要 **4–6 點**）
-- **財經新聞快報（近 5 小時｜台灣+國際，RSS 去重）→ Telegram**：每天 **06:00 / 16:00 / 21:00**（台灣最多 **6**、國際最多 **6**；主軸 2 點／追蹤 2 點；台灣來源新增 Yahoo股市 RSS）
-- **台股收盤摘要 pipeline（快取→發送→寫入週檔）**：週一～週五
-  - 16:50 產生快取，並同時更新外資/投信/自營商買賣超到追蹤清單表格（快取）
-  - 17:00 Telegram 發送（分段，避免訊息過長）
-  - 17:00 寫入 `stock_report` 週檔（含摘要+表格）並 push
-- **美股收盤摘要 pipeline（快取→發送→寫入週檔）**：週二～週六
-  - 06:28 產生快取（cache）
-  - 06:35 Telegram 發送
-  - 06:40 寫入 `stock_report` 週檔並 push
-- **台指期盤後（WTXP&）當日行情 → Telegram**：週一～週五 **21:40**（附 Wantgoo 連結）
+- **US close cache + weekly git log (merged)**：週二～週六 **06:28**
+- **Finance news quick digest (5h, TW only) -> Telegram + site (08 Taipei)**：每天 **08:00**
+- **TW close report -> Telegram + stock_report (merged shell)**：週一～週五 **17:12**
+- **YT yutinghao summary script (16:00 Taipei)**：週一～週五 **16:00**
+- **Furniture purchase Supabase weekly backup -> local + Telegram**：週日 **09:00**
+- **Supabase keepalive SQL query (every 5 days)**：每 **5** 天
 
 ### 目前停用（保留設定）
-- **YouTube（YT-游庭皓）摘要**：週一～週五 11:10
-- 台股收盤研究摘要（13:40，週一～週五）
-- 美股收盤研究摘要（06:35，週一～週五）
-- 台股研究摘要 → 週檔（13:45，週一～週五）
+- **TW close market report (David)**：週一～週五 **13:40**
+- **US close market report (David)**：週一～週五 **06:35**
+- **TW report -> weekly git log (David)**：週一～週五 **13:45**
+- **TW report -> weekly git log (15:05)**：週一～週五 **15:05**
+- **YT yutinghao summary (11:10 Taipei)**：週一～週五 **11:10**
+- **TEMP Iran-US war news scan (08:30/10:30/16:30/20:30 Taipei) -> Telegram (David)**：每天 **08:30 / 10:30 / 16:30 / 20:30**
+- **US close send 06:35 (David)**：週二～週六 **06:35**
+- **US report -> weekly git log (David)**：週二～週六 **06:40**
+- **DISABLED - TW close prep (merged into 17:12 shell)**：週一～週五 **15:50**
+- **TW close send 16:00 (David)**：週一～週五 **16:00**
+- **DISABLED - TW insti refresh (merged into 17:12 shell)**：週一～週五 **16:55**
+- **WTXP& 台指期盤後行情 (21:40 Taipei) -> Telegram**：週一～週五 **21:40**
+- **Keep Supabase awake - furniturepurchaseweb**：每天 **08:20**
 
 ## AGENTS.md 共用模板
 - 這裡：[/agents-template](/agents-template)
