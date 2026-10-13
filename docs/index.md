@@ -89,33 +89,34 @@ curl -L -X POST 'https://whjkvgjihtnvcgtsygst.supabase.co/functions/v1/telegram-
 
 ## 排程中的自動工作（Cron Jobs）
 > 時區：Asia/Taipei
-> 最後更新：2026-09-25
-> 目前共 19 個：啟用 6 個、停用 13 個
+> 最後更新：2026-10-13 21:32
+> 目前共 19 個：啟用 5 個、停用 14 個
+> 模型 / 推理：目前所有 job 都未單獨覆寫 model/thinking，繼承 OpenClaw 預設 `openai/gpt-5.5` / `default`。
 
 ### 啟用中（最新）
 
 > 規則總表（我必須遵守的工作規則）：[/rules](/rules)
-- **US close cache + weekly git log (merged)**：週二～週六 **06:28**
-- **Finance news quick digest (5h, TW only) -> Telegram + site (08 Taipei)**：每天 **08:00**
-- **TW close report -> Telegram + stock_report (merged shell)**：週一～週五 **17:12**
-- **YT yutinghao summary script (16:00 Taipei)**：週一～週五 **16:00**
-- **Furniture purchase Supabase weekly backup -> local + Telegram**：週日 **09:00**
-- **Supabase keepalive SQL query (every 5 days)**：每 **5** 天
+- **Finance news quick digest (5h, TW only) -> Telegram + site (08 Taipei)**：每天 **08:00**；model `default`，thinking `default`
+- **YT yutinghao summary script (16:00 Taipei)**：週一～週五 **16:00**；model `default`，thinking `default`
+- **TW close report -> Telegram + stock_report (merged shell)**：週一～週五 **17:12**；model `default`，thinking `default`
+- **Furniture purchase Supabase weekly backup -> local + Telegram**：週日 **09:00**；model `default`，thinking `default`
+- **Supabase keepalive SQL query (every 5 days)**：每 **5** 天；model `default`，thinking `default`
 
 ### 目前停用（保留設定）
-- **TW close market report (David)**：週一～週五 **13:40**
-- **US close market report (David)**：週一～週五 **06:35**
-- **TW report -> weekly git log (David)**：週一～週五 **13:45**
-- **TW report -> weekly git log (15:05)**：週一～週五 **15:05**
-- **YT yutinghao summary (11:10 Taipei)**：週一～週五 **11:10**
-- **TEMP Iran-US war news scan (08:30/10:30/16:30/20:30 Taipei) -> Telegram (David)**：每天 **08:30 / 10:30 / 16:30 / 20:30**
-- **US close send 06:35 (David)**：週二～週六 **06:35**
-- **US report -> weekly git log (David)**：週二～週六 **06:40**
-- **DISABLED - TW close prep (merged into 17:12 shell)**：週一～週五 **15:50**
-- **TW close send 16:00 (David)**：週一～週五 **16:00**
-- **DISABLED - TW insti refresh (merged into 17:12 shell)**：週一～週五 **16:55**
-- **WTXP& 台指期盤後行情 (21:40 Taipei) -> Telegram**：週一～週五 **21:40**
-- **Keep Supabase awake - furniturepurchaseweb**：每天 **08:20**
+- **TW close market report (David)**：週一～週五 **13:40**；model `default`，thinking `default`
+- **US close market report (David)**：週一～週五 **06:35**；model `default`，thinking `default`
+- **TW report -> weekly git log (David)**：週一～週五 **13:45**；model `default`，thinking `default`
+- **TW report -> weekly git log (15:05)**：週一～週五 **15:05**；model `default`，thinking `default`
+- **YT yutinghao summary (11:10 Taipei)**：週一～週五 **11:10**；model `default`，thinking `default`
+- **TEMP Iran-US war news scan (08:30/10:30/16:30/20:30 Taipei) -> Telegram (David)**：每天 **08:30 / 10:30 / 16:30 / 20:30**；model `default`，thinking `default`
+- **DISABLED - US close cache + weekly git log (merged)**：週二～週六 **06:28**；model `default`，thinking `default`
+- **US close send 06:35 (David)**：週二～週六 **06:35**；model `default`，thinking `default`
+- **US report -> weekly git log (David)**：週二～週六 **06:40**；model `default`，thinking `default`
+- **DISABLED - TW close prep (merged into 17:12 shell)**：週一～週五 **15:50**；model `default`，thinking `default`
+- **TW close send 16:00 (David)**：週一～週五 **16:00**；model `default`，thinking `default`
+- **DISABLED - TW insti refresh (merged into 17:12 shell)**：週一～週五 **16:55**；model `default`，thinking `default`
+- **WTXP& 台指期盤後行情 (21:40 Taipei) -> Telegram**：週一～週五 **21:40**；model `default`，thinking `default`
+- **Keep Supabase awake - furniturepurchaseweb**：每天 **08:20**；model `default`，thinking `default`
 
 ## AGENTS.md 共用模板
 - 這裡：[/agents-template](/agents-template)
