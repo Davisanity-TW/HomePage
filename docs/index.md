@@ -89,8 +89,8 @@ curl -L -X POST 'https://whjkvgjihtnvcgtsygst.supabase.co/functions/v1/telegram-
 
 ## 排程中的自動工作（Cron Jobs）
 > 時區：Asia/Taipei
-> 最後更新：2026-10-13 21:32
-> 目前共 19 個：啟用 5 個、停用 14 個
+> 最後更新：2026-11-06 16:26
+> 目前共 21 個：啟用 7 個、停用 14 個
 > 模型 / 推理：目前所有 job 都未單獨覆寫 model/thinking，繼承 OpenClaw 預設 `openai/gpt-5.5` / `default`。
 
 ### 啟用中（最新）
@@ -98,6 +98,7 @@ curl -L -X POST 'https://whjkvgjihtnvcgtsygst.supabase.co/functions/v1/telegram-
 > 規則總表（我必須遵守的工作規則）：[/rules](/rules)
 - **Finance news quick digest (5h, TW only) -> Telegram + site (08 Taipei)**：每天 **08:00**；model `default`，thinking `default`
 - **YT yutinghao summary script (16:00 Taipei)**：週一～週五 **16:00**；model `default`，thinking `default`
+- **Gooaye 股癌摘要同步**：每週三、四、六、日 **16:15**；抓取 aistockmap 最新集數，完整同步至 `stock_report/reports/guai/` 並依 ISO 週別發布；失敗時發送 Telegram 告警
 - **TW close report -> Telegram + stock_report (merged shell)**：週一～週五 **17:12**；model `default`，thinking `default`
 - **Furniture purchase Supabase weekly backup -> local + Telegram**：週日 **09:00**；model `default`，thinking `default`
 - **Supabase keepalive SQL query (every 5 days)**：每 **5** 天；model `default`，thinking `default`
